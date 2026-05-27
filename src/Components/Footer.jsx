@@ -1,18 +1,24 @@
-import { Link } from "react-router-dom"; // Link bileşenini import ettik
+// ============================================================
+// Footer.jsx
+// Uygulamanın alt kısım bileşeni.
+// Sol: Logo + telif hakkı  |  Sağ: React Router navigasyon linkleri
+// ============================================================
+
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  // Tanımladığın routelar ile birebir eşleşen bir dizi oluşturduk
+  // ── Navigasyon linkleri (routes ile birebir eşleşmeli) ───
   const navigationLinks = [
     { name: "Anasayfa", path: "/" },
     { name: "Rüya Yorumla", path: "/DreamInterpret" },
-    { name: "Semboller", path: "/Symbols" }, // Eğer menüde göstermek istersen
+    { name: "Semboller", path: "/Symbols" },
     { name: "İletişim", path: "/Contact" },
   ];
 
   return (
     <footer className="w-full bg-neutral text-neutral-content py-6 px-8 font-sans select-none border-t border-gray-800">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Sol Kısım: Logo ve Telif Hakkı */}
+        {/* Sol: Logo + telif hakkı */}
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold tracking-wider text-white">
             Oneiromancy <span className="text-blue-500">AI</span>
@@ -23,12 +29,12 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Sağ Kısım: React Router Uyumlu Minimal Linkler */}
+        {/* Sağ: React Router linkleri (href yok, sayfa yenilenmez) */}
         <nav className="flex items-center gap-6 text-xs font-medium text-gray-400">
           {navigationLinks.map((item) => (
             <Link
               key={item.name}
-              to={item.path} // href yerini 'to' aldı, sayfa yenilenmeyecek
+              to={item.path}
               className="hover:text-white transition-colors duration-200"
             >
               {item.name}
