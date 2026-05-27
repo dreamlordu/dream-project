@@ -40,13 +40,12 @@ const Navbar = () => {
         socialItems={socialItems}
         displaySocials
         displayItemNumbering={true}
-        menuButtonColor="#000000"
-        openMenuButtonColor="#ff3030"
+        menuButtonColor="#ffffff"
+        openMenuButtonColor="#fff"
         changeMenuColorOnOpen={true}
         colors={["#B497CF", "#5227FF"]}
         logoUrl={dreamlogo}
         accentColor="#5227FF"
-        onNavigate={() => {}}
         onMenuOpen={() => console.log("Menu opened")}
         onMenuClose={() => console.log("Menu closed")}
       />
