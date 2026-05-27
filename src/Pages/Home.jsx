@@ -22,7 +22,7 @@ const Home = () => {
     "Yapay zeka gücüyle rüyalarınızın gizemli dünyasını aralayın. Bilinçaltınızın mesajlarını keşfedin.";
 
   return (
-    <div className="w-full h-[75vh] relative flex flex-col justify-center items-center bg-white border border-gray-100 rounded-3xl overflow-hidden select-none p-4 md:p-6 mb-3">
+    <div className="w-full h-[60vh] relative flex flex-col justify-center items-center bg-white border border-gray-100 rounded-3xl overflow-hidden select-none p-4 md:p-6 mb-3">
       {/* ... (Diğer arka plan efektleri aynı kalabilir) ... */}
 
       <div className="flex flex-col items-center text-center max-w-3xl z-10">
