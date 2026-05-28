@@ -163,7 +163,7 @@ const DreamInterpret = () => {
           <div className="chat chat-start w-full animate-pulse px-2 md:px-4">
             <div className="chat-image avatar pl-1">
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-full ring ring-sky-200 ring-offset-base-100 ring-offset-2 flex items-center justify-center bg-sky-50">
-                <GiCrystalBall className="w-7 h-7 md:w-8 md:h-8 text-sky-400 animate-spin" />
+                <GiCrystalBall className="w-7 h-7 md:w-8 md:h-8 text-sky-400 animate-pulse" />
               </div>
             </div>
             <div className="chat-header font-semibold text-sky-800 mb-1.5 text-sm md:text-base">
