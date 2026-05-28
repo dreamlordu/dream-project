@@ -4,7 +4,6 @@
 // (Bu dosyada kod hatası yoktu, yorum satırları eklendi.)
 // ============================================================
 
-import React from "react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 
 const Contact = () => {
@@ -16,7 +15,7 @@ const Contact = () => {
         <FiMail className="text-xl text-white group-hover:text-blue-400 transition-colors duration-300" />
       ),
       title: "E-posta Adresi",
-      value: "support@oneiromancyai.com",
+      value: "osmangztk16@gmail.com",
       description: "Sorularınız ve iş birlikleri için bize yazın.",
     },
     {
