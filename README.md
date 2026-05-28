@@ -168,24 +168,7 @@ Bu platform tarafından sunulan yorumlar yapay zeka algoritmaları aracılığı
 
 Tüm yorumlar yalnızca bilgilendirme ve eğlence amaçlıdır.
 
----
 
-# 🤝 Katkıda Bulunma
-
-Katkıda bulunmak isterseniz:
-
-1. Fork oluşturun
-2. Yeni branch açın
-3. Commit atın
-4. Pull request gönderin
-
----
-
-# 📄 Lisans
-
-Bu proje MIT lisansı ile lisanslanmıştır.
-
----
 
 # 👨‍💻 Geliştirici
 
