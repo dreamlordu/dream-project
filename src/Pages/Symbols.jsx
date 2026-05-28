@@ -9,7 +9,7 @@
 //    toLocaleLowerCase("tr-TR") kullanılmalı.
 // ============================================================
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { symbolDictionary } from "../data/symbolData";
 import * as FiIcons from "react-icons/fi";
