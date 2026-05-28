@@ -89,7 +89,7 @@ const Contact = () => {
 
       {/* Alt dipnot */}
       <div className="mt-16 text-center text-xs text-slate-400 font-medium tracking-wide z-10">
-        Oneiromancy AI • Bilinçaltınızın Yapay Zeka Rehberi
+        Tabir-i Ruya • Bilinçaltınızın Yapay Zeka Rehberi
       </div>
     </div>
   );
