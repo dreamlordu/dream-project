@@ -33,8 +33,8 @@ const Home = () => {
 
   // ── JSX ──────────────────────────────────────────────────
   return (
-    <div className="w-full h-[60vh] relative flex flex-col justify-center items-center bg-white border border-gray-100 rounded-3xl overflow-hidden select-none p-4 md:p-6 mb-3">
-      <div className="flex flex-col items-center text-center max-w-3xl z-10">
+    <div className="w-full min-h-[60vh]  relative flex flex-col justify-center items-center bg-white border border-gray-100 rounded-3xl overflow-hidden select-none p-4 md:p-6 mb-3">
+      <div className="flex flex-col items-center mt-24 text-center max-w-3xl z-10">
         {/* Dekoratif emoji */}
         <div className="text-5xl mb-6 opacity-90 drop-shadow-md animate-pulse">
           🕸️
@@ -43,7 +43,7 @@ const Home = () => {
         {/* Animasyonlu başlık */}
         <div className="mb-3">
           <TrueFocus
-            sentence="Oneiromancy AI"
+            sentence="Tabir-i Ruya"
             manualMode={false}
             blurAmount={5}
             borderColor="var(--fallback-p,oklch(var(--p)))"

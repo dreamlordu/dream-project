@@ -21,7 +21,7 @@ const Footer = () => {
         {/* Sol: Logo + telif hakkı */}
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold tracking-wider text-white">
-            Oneiromancy <span className="text-blue-500">AI</span>
+            Tabir-i <span className="text-blue-500">Ruya</span>
           </span>
           <span className="text-gray-600 hidden sm:inline">|</span>
           <p className="text-xs text-gray-500 tracking-wide">

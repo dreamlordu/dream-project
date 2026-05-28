@@ -10,7 +10,7 @@ import NotFound from "../Pages/NontFound"; // İçe aktardık
 const AppRouter = () => (
   <div className="flex flex-col min-h-screen w-full">
     <Navbar />
-    <main className="flex-grow w-full mt-20 h-{50vh}">
+    <main className="flex-grow w-full mt-20 h-[50vh]">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/DreamInterpret" element={<DreamInterpret />} />
