@@ -1,6 +1,9 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
+/* DaisyUI sadece "light" temasını bilsin */
+@plugin "daisyui" {
+  themes: [ "light"];
+}
 @theme {
   /* Karanlık mod sınıfını devre dışı bırakır */
   --color-dark: transparent;
@@ -11,4 +14,13 @@
   :root {
     @apply [data-theme=light];
   }
+}
+/* Tarayıcının kendi kendine renkleri değiştirmesini engelle */
+html {
+  color-scheme: light !important;
+}
+
+/* Tüm öğelerin tarayıcı tarafından otomatik koyulaştırılmasını engelle */
+* {
+  filter: none !important;
 }
