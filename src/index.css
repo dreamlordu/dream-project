@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+  /* Karanlık mod sınıfını devre dışı bırakır */
+  --color-dark: transparent;
+}
+
+/* DaisyUI'ı "light" modda sabitlemek için */
+@layer base {
+  :root {
+    @apply [data-theme=light];
+  }
+}
