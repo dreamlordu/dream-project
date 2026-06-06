@@ -4,7 +4,8 @@
 @plugin "daisyui" {
   themes: [ "light"];
 }
-
+/* DARK MODE'U TAMAMEN KAPAT */
+@custom-variant dark (&:where(.dark, .dark *));
 /* DaisyUI dark mod sınıfını devre dışı bırak */
 @theme {
   --color-dark: transparent;
