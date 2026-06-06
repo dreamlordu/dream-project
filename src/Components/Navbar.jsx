@@ -1,4 +1,4 @@
-import CardNav from "./CardNav"; // Aynı klasörde oldukları için
+import CardNav from "./CardNav";
 import dreamlogo from "../assets/image/dream-catcher.png";
 
 const Navbar = () => {
@@ -6,7 +6,7 @@ const Navbar = () => {
     {
       label: "Rüya Yorumla",
       bgColor: "#1B1722",
-      textColor: "#fff",
+      textColor: "#ffffff",
       links: [
         { label: "Yorumlama", href: "/DreamInterpret" },
         { label: "Semboller", href: "/Symbols" },
@@ -15,7 +15,7 @@ const Navbar = () => {
     {
       label: "Genel",
       bgColor: "#2F293A",
-      textColor: "#fff",
+      textColor: "#ffffff",
       links: [
         { label: "Anasayfa", href: "/" },
         { label: "İletişim", href: "/Contact" },
@@ -24,7 +24,7 @@ const Navbar = () => {
     {
       label: "Sosyal",
       bgColor: "#5227FF",
-      textColor: "#fff",
+      textColor: "#ffffff",
       links: [
         { label: "GitHub", href: "https://github.com/dreamlordu" },
         {
@@ -43,8 +43,6 @@ const Navbar = () => {
       items={menuItems}
       baseColor="#ffffff"
       menuColor="#000000"
-      buttonBgColor="#111"
-      buttonTextColor="#fff"
       ease="power3.out"
     />
   );

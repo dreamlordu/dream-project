@@ -1,16 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion"; // Not: motion/react yerine standart framer-motion kullandım, projenize göre değiştirebilirsiniz.
+import { motion } from "framer-motion";
 
 const TrueFocus = ({
   sentence = "Oneiromancy AI",
   separator = " ",
   manualMode = false,
   blurAmount = 5,
-  /* DÜZELTME: Renkleri CSS variable'larına bağladık. 
-    Açık modda mor (#5227FF), dark modda ise sarı tonlarına otomatik dönecek.
-  */
-  borderColor = "var(--focus-border, #5227FF)",
-  glowColor = "var(--focus-glow, rgba(82, 39, 255, 0.4))",
+  borderColor = "#5227FF",
+  glowColor = "rgba(82, 39, 255, 0.4)",
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
 }) => {
@@ -29,12 +26,9 @@ const TrueFocus = ({
   useEffect(() => {
     if (!manualMode) {
       const interval = setInterval(
-        () => {
-          setCurrentIndex((prev) => (prev + 1) % words.length);
-        },
+        () => setCurrentIndex((prev) => (prev + 1) % words.length),
         (animationDuration + pauseBetweenAnimations) * 1000,
       );
-
       return () => clearInterval(interval);
     }
   }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
@@ -42,10 +36,8 @@ const TrueFocus = ({
   useEffect(() => {
     if (currentIndex === null || currentIndex === -1) return;
     if (!wordRefs.current[currentIndex] || !containerRef.current) return;
-
     const parentRect = containerRef.current.getBoundingClientRect();
     const activeRect = wordRefs.current[currentIndex].getBoundingClientRect();
-
     setFocusRect({
       x: activeRect.left - parentRect.left,
       y: activeRect.top - parentRect.top,
@@ -60,11 +52,13 @@ const TrueFocus = ({
       setCurrentIndex(index);
     }
   };
-
   const handleMouseLeave = () => {
-    if (manualMode) {
-      setCurrentIndex(lastActiveIndex);
-    }
+    if (manualMode) setCurrentIndex(lastActiveIndex);
+  };
+
+  const cornerStyle = {
+    borderColor,
+    filter: `drop-shadow(0 0 6px ${glowColor})`,
   };
 
   return (
@@ -73,38 +67,23 @@ const TrueFocus = ({
       ref={containerRef}
       style={{ outline: "none", userSelect: "none" }}
     >
-      {/* Koyu modda renklerin sarı olması için CSS değişkenlerini tanımlıyoruz.
-        Buradaki değerleri istediğin sarı tonuna göre değiştirebilirsin.
-      */}
-      <style>{`
-        :root {
-          --focus-border: #5227FF;
-          --focus-glow: rgba(82, 39, 255, 0.4);
-        }
-        [data-theme="synthwave"], .dark {
-          --focus-border: #FBBF24; /* Dark modda asil sarı */
-          --focus-glow: rgba(251, 191, 36, 0.5); /* Sarı parlama gölgesi */
-        }
-      `}</style>
-
-      {words.map((word, index) => {
-        const isActive = index === currentIndex;
-        return (
-          <span
-            key={index}
-            ref={(el) => (wordRefs.current[index] = el)}
-            className="relative text-[3rem] font-black cursor-pointer select-none outline-none transition-all duration-300"
-            style={{
-              filter: isActive ? `blur(0px)` : `blur(${blurAmount}px)`,
-              transition: `filter ${animationDuration}s ease`,
-            }}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {word}
-          </span>
-        );
-      })}
+      {words.map((word, index) => (
+        <span
+          key={index}
+          ref={(el) => (wordRefs.current[index] = el)}
+          className="relative text-[3rem] font-black cursor-pointer select-none outline-none"
+          style={{
+            color: "#0f172a",
+            filter:
+              index === currentIndex ? "blur(0px)" : `blur(${blurAmount}px)`,
+            transition: `filter ${animationDuration}s ease`,
+          }}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {word}
+        </span>
+      ))}
 
       <motion.div
         className="absolute top-0 left-0 pointer-events-none box-border border-0"
@@ -115,42 +94,24 @@ const TrueFocus = ({
           height: focusRect.height,
           opacity: currentIndex >= 0 ? 1 : 0,
         }}
-        transition={{
-          duration: animationDuration,
-        }}
-        style={{
-          "--border-color": borderColor,
-          "--glow-color": glowColor,
-        }}
+        transition={{ duration: animationDuration }}
       >
         <span
           className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] left-[-10px] border-r-0 border-b-0"
-          style={{
-            borderColor: "var(--border-color)",
-            filter: "drop-shadow(0 0 6px var(--glow-color))",
-          }}
-        ></span>
+          style={cornerStyle}
+        />
         <span
           className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] right-[-10px] border-l-0 border-b-0"
-          style={{
-            borderColor: "var(--border-color)",
-            filter: "drop-shadow(0 0 6px var(--glow-color))",
-          }}
-        ></span>
+          style={cornerStyle}
+        />
         <span
           className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] left-[-10px] border-r-0 border-t-0"
-          style={{
-            borderColor: "var(--border-color)",
-            filter: "drop-shadow(0 0 6px var(--glow-color))",
-          }}
-        ></span>
+          style={cornerStyle}
+        />
         <span
           className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] right-[-10px] border-l-0 border-t-0"
-          style={{
-            borderColor: "var(--border-color)",
-            filter: "drop-shadow(0 0 6px var(--glow-color))",
-          }}
-        ></span>
+          style={cornerStyle}
+        />
       </motion.div>
     </div>
   );

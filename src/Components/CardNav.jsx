@@ -12,8 +12,8 @@ const CardNav = ({
   items,
   className = "",
   ease = "power3.out",
-  baseColor = "#fff",
-  menuColor,
+  baseColor = "#ffffff",
+  menuColor = "#000000",
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -27,11 +27,7 @@ const CardNav = ({
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (isMobile) {
       const contentEl = navEl.querySelector(".card-nav-content");
-      if (contentEl) {
-        const topBar = 60;
-        const padding = 16;
-        return topBar + contentEl.scrollHeight + padding;
-      }
+      if (contentEl) return 60 + contentEl.scrollHeight + 16;
     }
     return 260;
   };
@@ -65,7 +61,6 @@ const CardNav = ({
     }
   }, [isExpanded]);
 
-  // Dışarı tıklayınca kapatma
   useLayoutEffect(() => {
     const handleClickOutside = (e) => {
       if (isExpanded && navRef.current && !navRef.current.contains(e.target))
@@ -75,7 +70,6 @@ const CardNav = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isExpanded, toggleMenu]);
 
-  // Timeline kurulumu
   useLayoutEffect(() => {
     const tl = createTimeline();
     tlRef.current = tl;
@@ -98,10 +92,9 @@ const CardNav = ({
         className="card-nav block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden"
         style={{ backgroundColor: baseColor }}
       >
-        {/* Header: Logo Solda, Hamburger Sağda */}
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between px-6 z-[2]">
           <div className="flex items-center gap-3">
-            <img src={logo} alt={logoAlt} className="h-[28px]" />
+            {logo && <img src={logo} alt={logoAlt} className="h-[28px]" />}
             <span
               className="font-extrabold text-lg"
               style={{ color: menuColor }}
@@ -110,13 +103,11 @@ const CardNav = ({
               <span className="text-blue-500 font-extrabold">{sitename}</span>
             </span>
           </div>
-
-          <div className="flex items-center">
+          <div style={{ color: menuColor }}>
             <HamburgerMenu isOpen={isHamburgerOpen} onClick={toggleMenu} />
           </div>
         </div>
 
-        {/* İçerik */}
         <div
           className={`card-nav-content absolute left-0 right-0 top-[60px] p-2 flex flex-col md:flex-row gap-2 ${isExpanded ? "visible" : "invisible"}`}
         >

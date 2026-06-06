@@ -1,13 +1,6 @@
-// ============================================================
-// Footer.jsx
-// Uygulamanın alt kısım bileşeni.
-// Sol: Logo + telif hakkı  |  Sağ: React Router navigasyon linkleri
-// ============================================================
-
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  // ── Navigasyon linkleri (routes ile birebir eşleşmeli) ───
   const navigationLinks = [
     { name: "Anasayfa", path: "/" },
     { name: "Rüya Yorumla", path: "/DreamInterpret" },
@@ -16,26 +9,37 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-neutral text-neutral-content py-6 px-8 font-sans select-none border-t border-gray-800">
+    <footer
+      className="w-full py-6 px-8 font-sans select-none border-t"
+      style={{
+        backgroundColor: "#171717",
+        borderColor: "#262626",
+        color: "#a3a3a3",
+      }}
+    >
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Sol: Logo + telif hakkı */}
         <div className="flex items-center gap-3">
-          <span className="text-lg font-bold tracking-wider text-white">
-            Tabir-i <span className="text-blue-500">Ruya</span>
+          <span
+            className="text-lg font-bold tracking-wider"
+            style={{ color: "#ffffff" }}
+          >
+            Tabir-i <span style={{ color: "#3b82f6" }}>Ruya</span>
           </span>
-          <span className="text-gray-600 hidden sm:inline">|</span>
-          <p className="text-xs text-gray-500 tracking-wide">
+          <span className="hidden sm:inline" style={{ color: "#404040" }}>
+            |
+          </span>
+          <p className="text-xs" style={{ color: "#737373" }}>
             © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
-
-        {/* Sağ: React Router linkleri (href yok, sayfa yenilenmez) */}
-        <nav className="flex items-center gap-6 text-xs font-medium text-gray-400">
+        <nav className="flex items-center gap-6 text-xs font-medium">
           {navigationLinks.map((item) => (
             <Link
               key={item.name}
               to={item.path}
-              className="hover:text-white transition-colors duration-200"
+              style={{ color: "#737373" }}
+              onMouseEnter={(e) => (e.target.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.target.style.color = "#737373")}
             >
               {item.name}
             </Link>

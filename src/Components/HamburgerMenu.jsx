@@ -1,5 +1,4 @@
 const HamburgerMenu = ({ isOpen, onClick }) => {
-  // Stil tanımlamaları
   const styles = {
     container: {
       display: "flex",
@@ -37,12 +36,12 @@ const HamburgerMenu = ({ isOpen, onClick }) => {
     <div style={styles.container}>
       <input
         type="checkbox"
-        id="checkbox"
+        id="hamburger-checkbox"
         checked={isOpen}
         onChange={onClick}
         style={styles.checkbox}
       />
-      <label htmlFor="checkbox" style={styles.toggle}>
+      <label htmlFor="hamburger-checkbox" style={styles.toggle}>
         <div style={styles.bar(true, false, false)}></div>
         <div style={styles.bar(false, true, false)}></div>
         <div style={styles.bar(false, false, true)}></div>

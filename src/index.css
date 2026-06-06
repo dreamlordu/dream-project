@@ -1,34 +1,23 @@
 @import "tailwindcss";
 
-/* DaisyUI sadece "light" temasını bilsin */
 @plugin "daisyui" {
   themes: [ "light"];
 }
-/* DARK MODE'U TAMAMEN KAPAT */
-@custom-variant dark (&:where(.dark, .dark *));
-/* DaisyUI dark mod sınıfını devre dışı bırak */
-@theme {
-  --color-dark: transparent;
+
+/* 1. Sadece 'light' modun desteklendiğini tarayıcıya bildir */
+:root {
+  color-scheme: light;
 }
 
-/* DaisyUI'ı light modda sabitlemek için */
-@layer base {
-  :root {
-    @apply [data-theme=light];
-  }
-}
-
-/* Tarayıcının otomatik dark mod renk değiştirmesini engelle */
+/* 2. Telefonların veya tarayıcıların otomatik renk invert etmesini engelle */
 html {
   color-scheme: light !important;
+  /* Bazı tarayıcıların renkleri değiştirmesini tamamen durdurur */
+  background-color: white !important;
+  color: black !important;
 }
 
-/* Tüm öğelerin tarayıcı tarafından otomatik koyulaştırılmasını engelle */
+/* 3. Eğer yine de bazı öğelerde invert sorunu yaşıyorsan */
 * {
-  filter: none !important;
-}
-html,
-body {
-  background-color: #ffffff !important;
-  color: #111827 !important; /* text-gray-900 */
+  color-scheme: light !important;
 }

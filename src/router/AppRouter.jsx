@@ -8,7 +8,7 @@ import Contact from "../Pages/Contact";
 import NotFound from "../Pages/NontFound"; // İçe aktardık
 
 const AppRouter = () => (
-  <div className="flex flex-col min-h-screen w-full">
+  <div className="flex flex-col min-h-screen w-full bg-white text-slate-900">
     <Navbar />
     <main className="flex-grow w-full mt-20 ">
       <Routes>
