@@ -4,18 +4,20 @@
 @plugin "daisyui" {
   themes: [ "light"];
 }
+
+/* DaisyUI dark mod sınıfını devre dışı bırak */
 @theme {
-  /* Karanlık mod sınıfını devre dışı bırakır */
   --color-dark: transparent;
 }
 
-/* DaisyUI'ı "light" modda sabitlemek için */
+/* DaisyUI'ı light modda sabitlemek için */
 @layer base {
   :root {
     @apply [data-theme=light];
   }
 }
-/* Tarayıcının kendi kendine renkleri değiştirmesini engelle */
+
+/* Tarayıcının otomatik dark mod renk değiştirmesini engelle */
 html {
   color-scheme: light !important;
 }
@@ -23,4 +25,9 @@ html {
 /* Tüm öğelerin tarayıcı tarafından otomatik koyulaştırılmasını engelle */
 * {
   filter: none !important;
+}
+html,
+body {
+  background-color: #ffffff !important;
+  color: #111827 !important; /* text-gray-900 */
 }
